@@ -1,0 +1,56 @@
+#!/bin/bash
+#Author:AshishJain
+
+echo "Enter the instance type"
+
+read typ
+
+echo "Enter the AMI ID"
+
+read ami
+
+echo "Enter the Number of Instances to be provisioned"
+
+read count
+
+echo "Enter Subnet ID"
+
+read subnet
+
+echo "Enter Secruity Group ID:"
+
+read sg
+
+echo "Enter keypair name:"
+
+read key
+
+
+
+echo "You have selected the following values:"
+echo "Instance Type : $typ"
+echo "AMI : $ami"
+echo "Count : $count "
+echo "Subnet : $subnet"
+echo "Security Group : $sg"
+echo "Key Pair : $key"
+
+echo "Are you sure you want to continue?(yes/no)"
+read x
+if [ "$x" = "yes" ]
+then
+echo "Launching Instance"
+
+#aws ec2 run-instances --image-id $ami --count $count --instance-type $typ --key-name $key --security-group-ids $sg --subnet-id $subnet
+
+echo "$count EC2 instances have been successfully created. Please check management console"
+
+#echo "Describing Instance"
+
+
+elif [ "$x" = "no" ]
+then
+echo "Exiting the session"
+else
+echo "You did not select a valid option. Please try again"
+fi
